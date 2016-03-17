@@ -1,4 +1,4 @@
-package mariana.entities;
+package mariana.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,4 +24,36 @@ public class UserRole {
 	private User user;
 
 	private String role;
+
+	public UserRole(User user, String role) {
+		this.user = user;
+		this.role = role;
+	}
+
+	public UserRole() {
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
 }
