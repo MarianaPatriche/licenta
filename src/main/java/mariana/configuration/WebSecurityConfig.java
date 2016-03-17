@@ -56,12 +56,7 @@ public class WebSecurityConfig {
 		return new StandardPasswordEncoder();
 	}
 
-	/**
-	 * Configure global authentication and authorization.
-	 *
-	 * @param auth AuthenticationManagerBuilder
-	 * @throws Exception Exception
-	 */
+
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 		auth.jdbcAuthentication().dataSource(dataSource)
@@ -74,9 +69,6 @@ public class WebSecurityConfig {
 	}
 
 
-	/**
-	 * Basic application authentication using form auth.
-	 */
 	@Configuration
 	@EnableGlobalMethodSecurity(securedEnabled = true)
 	@Order(2)
