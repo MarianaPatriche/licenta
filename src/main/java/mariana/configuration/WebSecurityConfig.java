@@ -87,7 +87,7 @@ public class WebSecurityConfig {
 			customFailureHandler(
 					http.csrf().disable().exceptionHandling().and().formLogin().loginPage("/login"))
 					.permitAll().defaultSuccessUrl("/").and().logout().logoutSuccessUrl("/login")
-					.and().authorizeRequests().antMatchers("/css/**", "/js/**").permitAll().anyRequest()
+					.and().authorizeRequests().antMatchers("/css/**", "/js/**", "/register").permitAll().anyRequest()
 					.authenticated();
 		}
 
