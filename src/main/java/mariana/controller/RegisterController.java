@@ -15,6 +15,7 @@ import javax.validation.Valid;
 import mariana.entity.User;
 import mariana.models.UserModel;
 import mariana.service.UserService;
+import mariana.validator.UsernameValidator;
 
 /**
  * Created by mariana on 17.03.2016.
@@ -26,6 +27,9 @@ public class RegisterController extends BaseController {
 	@Autowired
 	UserService userService;
 
+	@Autowired
+	UsernameValidator usernameValidator;
+
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public String registerForm(Model model){
 		model.addAttribute("user", new UserModel());
@@ -34,6 +38,8 @@ public class RegisterController extends BaseController {
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String registerUser(@Valid @ModelAttribute("user")UserModel user, BindingResult bindingResult, Model model){
+
+		usernameValidator.validate(user, bindingResult);
 		if(bindingResult.hasErrors()){
 			model.addAttribute("user", user);
 			return "/register";
