@@ -30,14 +30,35 @@ public class User {
 	@Column(name = "ENABLED")
 	private boolean enabled;
 
-	public User(String username, String password, boolean enabled) {
-		this.username = username;
-		this.password = password;
-		this.enabled = enabled;
-	}
+	@Column(name = "FIRST_NAME")
+	private String firstName;
 
-	public User() {
-	}
+	@Column(name = "LAST_NAME")
+	private String lastName;
+
+	@Column(name = "DESCRIPTION")
+	private String description;
+
+	@Column(name = "BIRTHDAY")
+	private String birthday;
+
+	@Column(name = "EDUCATION")
+	private String education;
+
+	@Column(name = "EXPERIENCE")
+	private String experience;
+
+	@Column(name = "PROGRAMMING_LANGUAGE")
+	private String programmingLanguage;
+
+	@Column(name = "CITY")
+	private String city;
+
+	@Column(name = "PHONE_NUMBER")
+	private String phoneNumber;
+
+	@Column(name = "EMAIL")
+	private String email;
 
 	public Long getId() {
 		return id;
@@ -63,11 +84,91 @@ public class User {
 		this.password = password;
 	}
 
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
 	public boolean isEnabled() {
 		return enabled;
 	}
 
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getBirthday() {
+		return birthday;
+	}
+
+	public void setBirthday(String birthday) {
+		this.birthday = birthday;
+	}
+
+	public String getEducation() {
+		return education;
+	}
+
+	public void setEducation(String education) {
+		this.education = education;
+	}
+
+	public String getExperience() {
+		return experience;
+	}
+
+	public void setExperience(String experience) {
+		this.experience = experience;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getProgrammingLanguage() {
+		return programmingLanguage;
+	}
+
+	public void setProgrammingLanguage(String programmingLanguage) {
+		this.programmingLanguage = programmingLanguage;
+	}
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 }
