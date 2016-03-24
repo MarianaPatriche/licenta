@@ -13,8 +13,8 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table(name = "USERS")
-public class User {
+@Table(name = "USER")
+public class User extends AbstractAuditable{
 
 	@Id
 	@GeneratedValue(generator = "USER_SEQ_GEN", strategy = GenerationType.SEQUENCE)
