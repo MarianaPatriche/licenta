@@ -6,7 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -23,11 +23,11 @@ public class Request extends AbstractAuditable {
 	@SequenceGenerator(name = "REQUEST_SEQ_GEN", sequenceName = "REQUEST_SEQ")
 	private Long id;
 
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "PROJECT_ID")
 	private Project project;
 
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "USER_ID")
 	private User user;
 

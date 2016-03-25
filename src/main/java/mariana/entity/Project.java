@@ -30,8 +30,9 @@ public class Project extends AbstractAuditable{
 	@Column(name = "NAME")
 	private String name;
 
-	@Column(name = "INITIATOR")
-	private String initiator;
+	@OneToOne
+	@JoinColumn(name = "INITIATOR")
+	private User initiator;
 
 	@Column(name = "DESCRIPTION")
 	private String description;
@@ -67,11 +68,11 @@ public class Project extends AbstractAuditable{
 		this.id = id;
 	}
 
-	public String getInitiator() {
+	public User getInitiator() {
 		return initiator;
 	}
 
-	public void setInitiator(String initiator) {
+	public void setInitiator(User initiator) {
 		this.initiator = initiator;
 	}
 

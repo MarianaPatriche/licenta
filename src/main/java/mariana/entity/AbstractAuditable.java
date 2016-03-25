@@ -1,6 +1,5 @@
 package mariana.entity;
 
-import org.hibernate.annotations.Type;
 import org.joda.time.LocalDateTime;
 
 import javax.persistence.Column;
@@ -39,7 +38,7 @@ public abstract class AbstractAuditable {
 
 	@PreUpdate
 	public void addLastUpdateBy() {
-		if(Auth.userLoggedIn() != null){
+		if (Auth.userLoggedIn() != null) {
 			this.lastUpdateBy = Auth.userLoggedIn();
 			this.lastUpdateDate = LocalDateTime.now();
 		}
