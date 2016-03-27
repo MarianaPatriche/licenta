@@ -42,6 +42,7 @@
 
 </head>
 
+
 <body>
 <!-- start: Header -->
 <div class="navbar">
@@ -372,51 +373,71 @@
         <!-- start: Content -->
         <div id="content" class="span10">
 
-            <div class="row-fluid">
+            <div class="row-fluid sortable">
+                <div class="box span12">
+                    <div class="box-header">
+                        <h2><i class="halflings-icon white edit"></i><span class="break"></span>Adauga un nou proiect!</h2>
+                        <div class="box-icon">
+                            <a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
+                            <a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
+                            <a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
+                        </div>
+                    </div>
+                    <div class="box-content">
+                        <form class="form-horizontal" method="post" th:object="${project}" th:action="@{insert}">
+                            <fieldset>
+                                <div class="control-group">
+                                    <label class="control-label" for="name">Nume</label>
+                                    <div class="controls">
+                                        <input class="input-xlarge focused" id="name" type="text" th:field="*{name}"/>
+                                    </div>
+                                </div>
 
-                <div class="span3 statbox purple" onTablet="span6" onDesktop="span3">
-                    <div class="boxchart">5,6,7,2,0,4,2,4,8,2,3,3,2</div>
-                    <div class="number">854<i class="icon-arrow-up"></i></div>
-                    <div class="title">visits</div>
-                    <div class="footer">
-                        <a th:href="@{/project/form}"> Adauga proiect</a>
-                    </div>
-                </div>
-                <div class="span3 statbox green" onTablet="span6" onDesktop="span3">
-                    <div class="boxchart">1,2,6,4,0,8,2,4,5,3,1,7,5</div>
-                    <div class="number">123<i class="icon-arrow-up"></i></div>
-                    <div class="title">sales</div>
-                    <div class="footer">
-                        <a href="#"> read full report</a>
-                    </div>
-                </div>
-                <div class="span3 statbox blue noMargin" onTablet="span6" onDesktop="span3">
-                    <div class="boxchart">5,6,7,2,0,-4,-2,4,8,2,3,3,2</div>
-                    <div class="number">982<i class="icon-arrow-up"></i></div>
-                    <div class="title">orders</div>
-                    <div class="footer">
-                        <a href="#"> read full report</a>
-                    </div>
-                </div>
-                <div class="span3 statbox yellow" onTablet="span6" onDesktop="span3">
-                    <div class="boxchart">7,2,2,2,1,-4,-2,4,8,,0,3,3,5</div>
-                    <div class="number">678<i class="icon-arrow-down"></i></div>
-                    <div class="title">visits</div>
-                    <div class="footer">
-                        <a href="#"> read full report</a>
-                    </div>
-                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="description">Descriere</label>
+                                    <div class="controls">
+                                        <textarea class="focused" id="description" th:field="*{description}"/>
+                                    </div>
+                                </div>
 
-            </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="teh">Tehnologii</label>
+                                    <div class="controls">
+                                        <textarea class="focused" id="teh" th:field="*{programmingLanguage}"/>
+                                    </div>
+                                </div>
 
+                                <div class="control-group">
+                                    <label class="control-label" for="daysToFinalize">Termen de finalizare</label>
+                                    <div class="controls">
+                                        <input type="number" class="focused" id="daysToFinalize" th:field="*{daysToFinalize}"/>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label class="control-label" for="noOfPeople">Numar de oameni</label>
+                                    <div class="controls">
+                                        <input type="number" class="focused" id="noOfPeople" th:field="*{noOfPeople}"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-primary">Salveaza</button>
+                                    <button class="btn">Renunta</button>
+                                </div>
+                            </fieldset>
+                        </form>
+
+                    </div>
+                </div><!--/span-->
+
+            </div><!--/row-->
 
         </div><!--/.fluid-container-->
 
         <!-- end: Content -->
     </div><!--/#content.span10-->
 </div><!--/fluid-row-->
-
-
 
 
 <div class="clearfix"></div>

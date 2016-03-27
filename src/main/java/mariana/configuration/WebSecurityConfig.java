@@ -61,9 +61,9 @@ public class WebSecurityConfig {
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 		auth.jdbcAuthentication().dataSource(dataSource)
 				.usersByUsernameQuery("select username, password, enabled "
-						+ "from user where username = ? and TRUE")
+						+ "from users where username = ? and TRUE")
 				.authoritiesByUsernameQuery(
-						"select u.username, ur.role from user u, user_role ur  "
+						"select u.username, ur.role from users u, user_role ur  "
 								+ "where  ur.user_id = u.id and u.username = ?")
 				.passwordEncoder(passwordEncoder());
 	}
