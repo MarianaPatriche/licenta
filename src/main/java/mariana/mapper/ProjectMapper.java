@@ -18,6 +18,8 @@ public class ProjectMapper {
         project.setNoOfPeople(projectModel.getNoOfPeople());
         project.setProgrammingLanguage(projectModel.getProgrammingLanguage());
         project.setInitiator(projectModel.getInitiator());
+        project.setSpecifications(projectModel.getSpecifications());
+        project.setLanguages(projectModel.getLanguages());
 
         return project;
     }
@@ -32,6 +34,8 @@ public class ProjectMapper {
         projectModel.setName(project.getName());
         projectModel.setDaysToFinalize(project.getDaysToFinalize());
         projectModel.setDescription(project.getDescription());
+        projectModel.setLanguages(project.getLanguages());
+        projectModel.setSpecifications(project.getSpecifications());
 
         return projectModel;
     }

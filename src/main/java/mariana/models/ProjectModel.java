@@ -13,6 +13,8 @@ public class ProjectModel{
     private Long daysToFinalize;
     private Integer noOfPeople;
     private String initiator;
+    private String specifications;
+    private String languages;
 
     public Long getId() {
         return id;
@@ -68,5 +70,21 @@ public class ProjectModel{
 
     public void setInitiator(String initiator) {
         this.initiator = initiator;
+    }
+
+    public String getSpecifications() {
+        return specifications;
+    }
+
+    public void setSpecifications(String specifications) {
+        this.specifications = specifications;
+    }
+
+    public String getLanguages() {
+        return languages;
+    }
+
+    public void setLanguages(String languages) {
+        this.languages = languages;
     }
 }

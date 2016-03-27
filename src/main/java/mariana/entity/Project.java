@@ -45,6 +45,12 @@ public class Project extends AbstractAuditable{
 	@Column(name = "NUMER_OF_PEOPLE")
 	private Integer noOfPeople;
 
+	@Column(name = "SPECIFICATIONS")
+	private String specifications;
+
+	@Column(name = "LANGUAGES")
+	private String languages;
+
 	@ManyToMany
 	@JoinTable(name = "USER_PROJECT",
 			joinColumns = {@JoinColumn(name = "USER_ID")},
@@ -113,5 +119,21 @@ public class Project extends AbstractAuditable{
 
 	public void setUsers(Set<User> users) {
 		this.users = users;
+	}
+
+	public String getSpecifications() {
+		return specifications;
+	}
+
+	public void setSpecifications(String specifications) {
+		this.specifications = specifications;
+	}
+
+	public String getLanguages() {
+		return languages;
+	}
+
+	public void setLanguages(String languages) {
+		this.languages = languages;
 	}
 }
