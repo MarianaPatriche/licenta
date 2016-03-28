@@ -10,7 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -36,8 +35,8 @@ public class Project extends AbstractAuditable{
 	@Column(name = "DESCRIPTION")
 	private String description;
 
-	@Column(name = "PROGRAMMING_LANGUAGE")
-	private String programmingLanguage;
+	@Column(name = "TECHNOLOGIES")
+	private String technologies;
 
 	@Column(name = "DAYS_TO_FINALIZE")
 	private Long daysToFinalize;
@@ -89,12 +88,12 @@ public class Project extends AbstractAuditable{
 		this.description = description;
 	}
 
-	public String getProgrammingLanguage() {
-		return programmingLanguage;
+	public String getTechnologies() {
+		return technologies;
 	}
 
-	public void setProgrammingLanguage(String programmingLanguage) {
-		this.programmingLanguage = programmingLanguage;
+	public void setTechnologies(String technologies) {
+		this.technologies = technologies;
 	}
 
 	public Long getDaysToFinalize() {

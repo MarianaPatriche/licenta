@@ -1,90 +1,108 @@
 package mariana.models;
 
-import java.util.List;
+import org.hibernate.validator.constraints.NotEmpty;
+
+import javax.validation.constraints.Min;
 
 /**
  * Created by mariana on 27.03.2016.
  */
-public class ProjectModel{
-    private Long id;
-    private String name;
-    private String description;
-    private String programmingLanguage;
-    private Long daysToFinalize;
-    private Integer noOfPeople;
-    private String initiator;
-    private String specifications;
-    private String languages;
+public class ProjectModel {
+	private Long id;
 
-    public Long getId() {
-        return id;
-    }
+	@NotEmpty(message = "Campul trebuie completat!")
+	private String name;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	@NotEmpty(message = "Campul trebuie completat!")
+	private String description;
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	@NotEmpty(message = "Campul trebuie completat!")
+	private String technologies;
 
-    public String getDescription() {
-        return description;
-    }
+	@Min(value = 1, message = "Campul trebuie sa contina o valoare mai mare decat 1!")
+	private Long daysToFinalize;
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+	@Min(value = 1, message = "Campul trebuie sa contina o valoare mai mare decat 1!")
+	private Integer noOfPeople;
 
-    public String getProgrammingLanguage() {
-        return programmingLanguage;
-    }
+	private String initiator;
 
-    public void setProgrammingLanguage(String programmingLanguage) {
-        this.programmingLanguage = programmingLanguage;
-    }
+	@NotEmpty(message = "Campul trebuie completat!")
+	private String specifications;
 
-    public Long getDaysToFinalize() {
-        return daysToFinalize;
-    }
+	@NotEmpty(message = "Campul trebuie completat!")
+	private String languages;
 
-    public void setDaysToFinalize(Long daysToFinalize) {
-        this.daysToFinalize = daysToFinalize;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public Integer getNoOfPeople() {
-        return noOfPeople;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public void setNoOfPeople(Integer noOfPeople) {
-        this.noOfPeople = noOfPeople;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public String getInitiator() {
-        return initiator;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public void setInitiator(String initiator) {
-        this.initiator = initiator;
-    }
+	public String getDescription() {
+		return description;
+	}
 
-    public String getSpecifications() {
-        return specifications;
-    }
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
-    public void setSpecifications(String specifications) {
-        this.specifications = specifications;
-    }
+	public String getTechnologies() {
+		return technologies;
+	}
 
-    public String getLanguages() {
-        return languages;
-    }
+	public void setTechnologies(String technologies) {
+		this.technologies = technologies;
+	}
 
-    public void setLanguages(String languages) {
-        this.languages = languages;
-    }
+	public Long getDaysToFinalize() {
+		return daysToFinalize;
+	}
+
+	public void setDaysToFinalize(Long daysToFinalize) {
+		this.daysToFinalize = daysToFinalize;
+	}
+
+	public Integer getNoOfPeople() {
+		return noOfPeople;
+	}
+
+	public void setNoOfPeople(Integer noOfPeople) {
+		this.noOfPeople = noOfPeople;
+	}
+
+	public String getInitiator() {
+		return initiator;
+	}
+
+	public void setInitiator(String initiator) {
+		this.initiator = initiator;
+	}
+
+	public String getSpecifications() {
+		return specifications;
+	}
+
+	public void setSpecifications(String specifications) {
+		this.specifications = specifications;
+	}
+
+	public String getLanguages() {
+		return languages;
+	}
+
+	public void setLanguages(String languages) {
+		this.languages = languages;
+	}
 }

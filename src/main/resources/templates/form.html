@@ -391,6 +391,9 @@
                                     <div class="controls">
                                         <input class="input-xlarge focused" id="name" type="text" th:field="*{name}"/>
                                     </div>
+                                    <div id="nameError"
+                                         th:if="${#fields.hasErrors('name')}"
+                                         th:errors="*{name}" style="color: red"></div>
                                 </div>
 
                                 <div class="control-group">
@@ -398,13 +401,19 @@
                                     <div class="controls">
                                         <textarea class="focused" id="description" th:field="*{description}"/>
                                     </div>
+                                    <div id="descriptionError"
+                                         th:if="${#fields.hasErrors('description')}"
+                                         th:errors="*{description}" style="color: red"></div>
                                 </div>
 
                                 <div class="control-group">
                                     <label class="control-label" for="teh">Tehnologii</label>
                                     <div class="controls">
-                                        <textarea class="focused" id="teh" th:field="*{programmingLanguage}"/>
+                                        <textarea class="focused" id="teh" th:field="*{technologies}"/>
                                     </div>
+                                    <div id="technologiesError"
+                                         th:if="${#fields.hasErrors('technologies')}"
+                                         th:errors="*{technologies}" style="color: red"></div>
                                 </div>
 
                                 <div class="control-group">
@@ -412,6 +421,9 @@
                                     <div class="controls">
                                         <textarea class="focused" id="specifications" th:field="*{specifications}"/>
                                     </div>
+                                    <div id="specificationsError"
+                                         th:if="${#fields.hasErrors('specifications')}"
+                                         th:errors="*{specifications}" style="color: red"></div>
                                 </div>
 
                                 <div class="control-group">
@@ -419,6 +431,9 @@
                                     <div class="controls">
                                         <textarea class="focused" id="languages" th:field="*{languages}"/>
                                     </div>
+                                    <div id="languagesError"
+                                         th:if="${#fields.hasErrors('languages')}"
+                                         th:errors="*{languages}" style="color: red"></div>
                                 </div>
 
                                 <div class="control-group">
@@ -426,6 +441,9 @@
                                     <div class="controls">
                                         <input type="number" class="focused" id="daysToFinalize" th:field="*{daysToFinalize}"/>
                                     </div>
+                                    <div id="daysToFinalizeError"
+                                         th:if="${#fields.hasErrors('daysToFinalize')}"
+                                         th:errors="*{daysToFinalize}" style="color: red"></div>
                                 </div>
 
                                 <div class="control-group">
@@ -433,6 +451,9 @@
                                     <div class="controls">
                                         <input type="number" class="focused" id="noOfPeople" th:field="*{noOfPeople}"/>
                                     </div>
+                                    <div id="noOfPeopleError"
+                                         th:if="${#fields.hasErrors('noOfPeople')}"
+                                         th:errors="*{noOfPeople}" style="color: red"></div>
                                 </div>
 
                                 <div class="form-actions">
