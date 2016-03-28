@@ -29,9 +29,6 @@ public class Project extends AbstractAuditable{
 	@Column(name = "NAME")
 	private String name;
 
-	@Column(name = "INITIATOR")
-	private String initiator;
-
 	@Column(name = "DESCRIPTION")
 	private String description;
 
@@ -70,14 +67,6 @@ public class Project extends AbstractAuditable{
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public String getInitiator() {
-		return initiator;
-	}
-
-	public void setInitiator(String initiator) {
-		this.initiator = initiator;
 	}
 
 	public String getDescription() {

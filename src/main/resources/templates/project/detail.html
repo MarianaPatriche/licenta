@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="fragments/head :: head"></head>
+
+<body>
+<!-- start: Header -->
+<div th:replace="fragments/navbar :: navbar"></div>
+<!-- start: Header -->
+
+<div class="container-fluid-full">
+    <div class="row-fluid">
+
+        <!-- start: Main Menu -->
+        <div th:replace="fragments/menu :: menu"></div>
+        <!-- end: Main Menu -->
+
+        <noscript>
+            <div class="alert alert-block span10">
+                <h4 class="alert-heading">Warning!</h4>
+                <p>You need to have <a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a> enabled to use this site.</p>
+            </div>
+        </noscript>
+
+        <!-- start: Content -->
+        <div id="content" class="span10">
+            <div class="row-fluid">
+
+                <div class="box span12">
+                    <div class="box-header">
+                        <h2 th:text="${project.name}"><i class="halflings-icon white th"></i><span class="break"></span></h2>
+                    </div>
+                    <div class="box-content">
+                        <ul class="nav tab-menu nav-tabs" id="myTab">
+                            <li class="active"><a href="#info">Informatii</a></li>
+                            <li><a href="#messages">Specificatii</a></li>
+                            <li><a href="#custom">Descriere</a></li>
+                        </ul>
+
+                        <div id="myTabContent" class="tab-content">
+                            <div class="tab-pane active" id="info">
+                                <div>
+                                    <span>Propus de: </span>
+                                    <span th:text="${project.createdBy}"></span>
+                                </div>
+
+                                <div>
+                                    <span>Tehnologii folosite: </span>
+                                    <span th:text="${project.technologies}"></span>
+                                </div>
+
+                                <div>
+                                    <span>Limbi straine cunoscute: </span>
+                                    <span th:text="${project.languages}"></span>
+                                </div>
+
+                                <div>
+                                    <span>Data: </span>
+                                    <span th:text="${#dates.format(project.createdDate, 'dd/MMM/yyyy')}"></span>
+                                </div>
+
+                                <div>
+                                    <span>Numarul de zile estimate: </span>
+                                    <span th:if="${project.daysToFinalize != null}" th:text="${project.daysToFinalize}"></span>
+                                    <span th:if="${project.daysToFinalize == null}">-</span>
+                                </div>
+
+                                <div>
+                                    <span>Numarul de membrii in echipa: </span>
+                                    <span th:if="${project.noOfPeople != null}" th:text="${project.noOfPeople}"></span>
+                                    <span th:if="${project.noOfPeople == null}">-</span>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="messages">
+                                <p th:text="${project.specifications}">
+                                </p>
+                            </div>
+                            <div class="tab-pane" id="custom">
+                                <p th:text="${project.description}">
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--/span-->
+
+            </div><!--/row-->
+
+
+        </div><!--/.fluid-container-->
+
+        <!-- end: Content -->
+    </div><!--/#content.span10-->
+</div><!--/fluid-row-->
+
+<div class="clearfix"></div>
+
+<div th:replace="fragments/footer :: footer"></div>
+
+</body>
+</html>

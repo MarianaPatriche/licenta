@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="fragments/head :: head"></head>
+
+<body>
+<!-- start: Header -->
+<div th:replace="fragments/navbar :: navbar"></div>
+<!-- start: Header -->
+
+<div class="container-fluid-full">
+    <div class="row-fluid">
+
+        <!-- start: Main Menu -->
+        <div th:replace="fragments/menu :: menu"></div>
+        <!-- end: Main Menu -->
+
+        <noscript>
+            <div class="alert alert-block span10">
+                <h4 class="alert-heading">Warning!</h4>
+
+                <p>You need to have <a href="http://en.wikipedia.org/wiki/JavaScript"
+                                       target="_blank">JavaScript</a> enabled to use this site.</p>
+            </div>
+        </noscript>
+
+        <!-- start: Content -->
+        <div id="content" class="span10">
+
+            <div class="row-fluid">
+
+                <div class="box black span6 noMargin" onTablet="span6" onDesktop="span12">
+                    <div class="box-header">
+                        <h2><i class="halflings-icon white list"></i><span class="break"></span>Proiecte</h2>
+
+                        <div class="box-icon">
+                            <a href="#" class="btn-minimize"><i
+                                    class="halflings-icon white chevron-up"></i></a>
+                            <a href="#" class="btn-close"><i
+                                    class="halflings-icon white remove"></i></a>
+                        </div>
+                    </div>
+                    <div class="box-content">
+                        <ul class="tickets metro">
+                            <li class="ticket" th:each="project : ${projectList}">
+                                <a th:href="@{/project/detail/__${project.id}__}">
+									<span class="header">
+										<span class="title" th:text="${project.name}"></span>
+
+										<span class="number" th:if="${project.noOfPeople != null}" th:text="'Echipa de ' + ${project.noOfPeople}"></span>
+										<span class="number" th:if="${project.noOfPeople == null}">-</span>
+									</span>
+									<span class="content">
+										<span class="avatar"><img src="img/avatar.jpg" alt="Avatar"/></span>
+
+										<span class="name" th:text="${project.createdBy}"></span>
+
+										<span class="priority" th:if="${project.daysToFinalize != null}" th:text="${project.daysToFinalize} + ' de zile'"></span>
+
+										<span class="status">Status: [ Complete ]
+										<div th:text="${project.description}"></div>
+										</span>
+
+										<span class="date" th:text="${#dates.format(project.createdDate, 'dd/MMM/yyyy')}"></span>
+									</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div><!--/span-->
+            </div>
+        </div><!--/.fluid-container-->
+
+        <!-- end: Content -->
+    </div><!--/#content.span10-->
+</div><!--/fluid-row-->
+
+
+<div class="clearfix"></div>
+
+<div th:replace="fragments/footer :: footer"></div>
+<script>
+	$("ul.tickets li:nth-child(4n + 1)").addClass("blue");
+	$("ul.tickets li:nth-child(4n + 2)").addClass("yellow");
+	$("ul.tickets li:nth-child(4n + 3)").addClass("red");
+	$("ul.tickets li:nth-child(4n)").addClass("green");
+</script>
+</body>
+</html>

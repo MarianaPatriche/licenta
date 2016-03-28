@@ -17,7 +17,6 @@ public class ProjectMapper {
         project.setName(projectModel.getName());
         project.setNoOfPeople(projectModel.getNoOfPeople());
         project.setTechnologies(projectModel.getTechnologies());
-        project.setInitiator(projectModel.getInitiator());
         project.setSpecifications(projectModel.getSpecifications());
         project.setLanguages(projectModel.getLanguages());
 
@@ -28,7 +27,7 @@ public class ProjectMapper {
         ProjectModel projectModel = new ProjectModel();
 
         projectModel.setId(project.getId());
-        projectModel.setInitiator(project.getInitiator());
+        projectModel.setCreatedBy(project.getCreatedBy());
         projectModel.setTechnologies(project.getTechnologies());
         projectModel.setNoOfPeople(project.getNoOfPeople());
         projectModel.setName(project.getName());
@@ -36,6 +35,7 @@ public class ProjectMapper {
         projectModel.setDescription(project.getDescription());
         projectModel.setLanguages(project.getLanguages());
         projectModel.setSpecifications(project.getSpecifications());
+        projectModel.setCreatedDate(project.getCreatedDate());
 
         return projectModel;
     }

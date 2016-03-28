@@ -1,6 +1,7 @@
 package mariana.models;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.joda.time.LocalDateTime;
 
 import javax.validation.constraints.Min;
 
@@ -16,7 +17,6 @@ public class ProjectModel {
 	@NotEmpty(message = "Campul trebuie completat!")
 	private String description;
 
-
 	@NotEmpty(message = "Campul trebuie completat!")
 	private String technologies;
 
@@ -26,13 +26,15 @@ public class ProjectModel {
 	@Min(value = 1, message = "Campul trebuie sa contina o valoare mai mare decat 1!")
 	private Integer noOfPeople;
 
-	private String initiator;
-
 	@NotEmpty(message = "Campul trebuie completat!")
 	private String specifications;
 
 	@NotEmpty(message = "Campul trebuie completat!")
 	private String languages;
+
+	private LocalDateTime createdDate;
+
+	private String createdBy;
 
 	public Long getId() {
 		return id;
@@ -82,12 +84,12 @@ public class ProjectModel {
 		this.noOfPeople = noOfPeople;
 	}
 
-	public String getInitiator() {
-		return initiator;
+	public String getCreatedBy() {
+		return createdBy;
 	}
 
-	public void setInitiator(String initiator) {
-		this.initiator = initiator;
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
 	}
 
 	public String getSpecifications() {
@@ -104,5 +106,13 @@ public class ProjectModel {
 
 	public void setLanguages(String languages) {
 		this.languages = languages;
+	}
+
+	public LocalDateTime getCreatedDate() {
+		return createdDate;
+	}
+
+	public void setCreatedDate(LocalDateTime createdDate) {
+		this.createdDate = createdDate;
 	}
 }

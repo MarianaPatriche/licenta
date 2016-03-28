@@ -22,8 +22,12 @@ public class ProjectService {
     public void saveProject(ProjectModel projectModel){
         Project project = ProjectMapper.toProject(projectModel);
 
-        project.setInitiator(Auth.userLoggedIn());
-
         projectRepository.save(project);
+    }
+
+    public ProjectModel getProjectModel(Long id){
+        Project project = projectRepository.findOne(id);
+
+        return ProjectMapper.toProjectModel(project);
     }
 }
