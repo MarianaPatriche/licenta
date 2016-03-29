@@ -36,6 +36,7 @@ public class ProjectMapper {
         projectModel.setLanguages(project.getLanguages());
         projectModel.setSpecifications(project.getSpecifications());
         projectModel.setCreatedDate(project.getCreatedDate());
+        projectModel.setStatus(project.getStatus());
 
         return projectModel;
     }

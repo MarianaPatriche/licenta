@@ -5,6 +5,8 @@ import org.joda.time.LocalDateTime;
 
 import javax.validation.constraints.Min;
 
+import mariana.utils.ProjectStatus;
+
 /**
  * Created by mariana on 27.03.2016.
  */
@@ -35,6 +37,10 @@ public class ProjectModel {
 	private LocalDateTime createdDate;
 
 	private String createdBy;
+
+	private ProjectStatus status;
+
+	private Boolean isInitiatorMemberOfTeam;
 
 	public Long getId() {
 		return id;
@@ -114,5 +120,21 @@ public class ProjectModel {
 
 	public void setCreatedDate(LocalDateTime createdDate) {
 		this.createdDate = createdDate;
+	}
+
+	public ProjectStatus getStatus() {
+		return status;
+	}
+
+	public void setStatus(ProjectStatus status) {
+		this.status = status;
+	}
+
+	public Boolean getInitiatorMemberOfTeam() {
+		return isInitiatorMemberOfTeam;
+	}
+
+	public void setInitiatorMemberOfTeam(Boolean initiatorMemberOfTeam) {
+		isInitiatorMemberOfTeam = initiatorMemberOfTeam;
 	}
 }

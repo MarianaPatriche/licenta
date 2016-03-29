@@ -13,6 +13,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import mariana.utils.ProjectStatus;
+
 /**
  * Created by mariana on 23.03.2016.
  */
@@ -46,6 +48,9 @@ public class Project extends AbstractAuditable{
 
 	@Column(name = "LANGUAGES")
 	private String languages;
+
+	@Column(name = "STATUS")
+	private ProjectStatus status;
 
 	@ManyToMany
 	@JoinTable(name = "USER_PROJECT",
@@ -123,5 +128,13 @@ public class Project extends AbstractAuditable{
 
 	public void setLanguages(String languages) {
 		this.languages = languages;
+	}
+
+	public ProjectStatus getStatus() {
+		return status;
+	}
+
+	public void setStatus(ProjectStatus status) {
+		this.status = status;
 	}
 }

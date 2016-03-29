@@ -39,7 +39,7 @@ public class ProjectController {
 		return "project/form";
 	}
 
-	@RequestMapping(value = "/insert", method = RequestMethod.POST)
+	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String projectInsert(@Valid @ModelAttribute("project") ProjectModel projectModel, BindingResult bindingResult, Model model) {
 		projectValidator.validate(projectModel, bindingResult);
 		if (bindingResult.hasErrors()) {
