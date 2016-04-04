@@ -38,6 +38,9 @@ public class UserMapper {
 		userProfileModel.setTechnologies(user.getTechnologies());
 		userProfileModel.setPhoneNumber(user.getPhoneNumber());
 		userProfileModel.setEmail(user.getEmail());
+		userProfileModel.setEnabled(user.isEnabled());
+		userProfileModel.setUsername(user.getUsername());
+		userProfileModel.setGrade(user.getGrade());
 
 		return userProfileModel;
 	}

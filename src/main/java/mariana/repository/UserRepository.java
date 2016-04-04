@@ -1,5 +1,7 @@
 package mariana.repository;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -16,4 +18,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
 	@Query("select ur.user from UserRole ur where ur.role = ?1")
 	List<User> findUserByRole(String role);
+
+	Page<User> findByEnabledTrue(Pageable pageable);
 }

@@ -60,6 +60,9 @@ public class User{
 	@Column(name = "EMAIL")
 	private String email;
 
+	@Column(name = "GRADE")
+	private Long grade;
+
 
 	public Long getId() {
 		return id;
@@ -171,5 +174,13 @@ public class User{
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public Long getGrade() {
+		return grade;
+	}
+
+	public void setGrade(Long grade) {
+		this.grade = grade;
 	}
 }

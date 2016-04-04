@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="fragments/head :: head"></head>
+
+<body>
+<!-- start: Header -->
+<div th:replace="fragments/navbar :: navbar"></div>
+<!-- start: Header -->
+
+<div class="container-fluid-full">
+    <div class="row-fluid">
+
+        <!-- start: Main Menu -->
+        <div th:replace="fragments/menu :: menu"></div>
+        <!-- end: Main Menu -->
+
+        <noscript>
+            <div class="alert alert-block span10">
+                <h4 class="alert-heading">Warning!</h4>
+                <p>You need to have <a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a> enabled to use this site.</p>
+            </div>
+        </noscript>
+
+        <!-- start: Content -->
+        <div id="content" class="span10">
+
+            <div class="row-fluid sortable">
+                <div class="box span12">
+                    <div class="box-header">
+                        <h2><i class="halflings-icon white user"></i><span class="break"></span>Members</h2>
+                        <div class="box-icon">
+                            <a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
+                            <a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
+                            <a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
+                        </div>
+                    </div>
+                    <div class="box-content">
+                        <table class="table table-striped bootstrap-datatable">
+                            <thead>
+                            <tr>
+                                <th>Username</th>
+                                <th>Nume</th>
+                                <th>Prenume</th>
+                                <th>Status</th>
+                                <th>Nota</th>
+                                <th>Tehnologii</th>
+                                <th>Actiuni</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="user : ${page.content}">
+                                <td th:text="${user.username}"></td>
+                                <td class="center" th:text="${user.lastName}"></td>
+                                <td class="center" th:text="${user.firstName}"></td>
+                                <td class="center" th:text="${user.grade}"></td>
+                                <td class="center" th:text="${user.technologies}"></td>
+                                <td class="center">
+                                    <span th:if="${user.enabled}" class = "label label-success">Activ</span>
+                                    <span th:if="${!user.enabled}" class = "label label-important">Inactiv</span>
+                                </td>
+                                <td class="center">
+                                    <a class="btn btn-success" href="#">
+                                        <i class="halflings-icon white zoom-in"></i>
+                                    </a>
+                                    <a class="btn btn-info" href="#">
+                                        <i class="halflings-icon white edit"></i>
+                                    </a>
+                                    <a class="btn btn-danger" href="#">
+                                        <i class="halflings-icon white trash"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div th:include="fragments/pagination :: paginationbar('/user/list')"></div>
+                    </div>
+                </div><!--/span-->
+
+            </div><!--/row-->
+
+        </div><!--/.fluid-container-->
+
+        <!-- end: Content -->
+    </div><!--/#content.span10-->
+</div><!--/fluid-row-->
+
+<div class="clearfix"></div>
+
+<div th:replace="fragments/footer :: footer"></div>
+
+</body>
+</html>
