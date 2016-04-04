@@ -1,8 +1,13 @@
 package mariana.models;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
+import javax.validation.constraints.Size;
+
 /**
- * Created by mariana on 29.03.2016.
+ * Created by mariana on 17.03.2016.
  */
+
 public class UserProfileModel {
 
 	private Long id;
@@ -35,20 +40,20 @@ public class UserProfileModel {
 		this.id = id;
 	}
 
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
 	public String getFirstName() {
 		return firstName;
 	}
 
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 	public String getDescription() {
@@ -75,14 +80,6 @@ public class UserProfileModel {
 		this.education = education;
 	}
 
-	public String getExperience() {
-		return experience;
-	}
-
-	public void setExperience(String experience) {
-		this.experience = experience;
-	}
-
 	public String getTechnologies() {
 		return technologies;
 	}
@@ -91,12 +88,12 @@ public class UserProfileModel {
 		this.technologies = technologies;
 	}
 
-	public String getPhoneNumber() {
-		return phoneNumber;
+	public String getExperience() {
+		return experience;
 	}
 
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
+	public void setExperience(String experience) {
+		this.experience = experience;
 	}
 
 	public String getCity() {
@@ -105,6 +102,14 @@ public class UserProfileModel {
 
 	public void setCity(String city) {
 		this.city = city;
+	}
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 
 	public String getEmail() {

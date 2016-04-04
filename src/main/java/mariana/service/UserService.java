@@ -5,12 +5,13 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import mariana.entity.User;
-import mariana.entity.UserProfile;
 import mariana.entity.UserRole;
-import mariana.models.UserModel;
-import mariana.repository.UserProfileRepository;
+import mariana.mapper.UserMapper;
+import mariana.models.UserProfileModel;
+import mariana.models.UserRegisterModel;
 import mariana.repository.UserRepository;
 import mariana.repository.UserRoleRepository;
+import mariana.utils.Auth;
 import mariana.utils.Role;
 
 /**
@@ -27,27 +28,31 @@ public class UserService {
 	private UserRoleRepository userRoleRepository;
 
 	@Autowired
-	private UserProfileRepository userProfileRepository;
-
-	@Autowired
 	private PasswordEncoder passwordEncoder;
 
-	public void saveUser(UserModel userModel) {
+	public void saveUser(UserRegisterModel userRegisterModel) {
 		User user = new User();
 		UserRole userRole = new UserRole();
-		UserProfile userProfile = new UserProfile();
 
-		user.setUsername(userModel.getUsername());
+		user.setUsername(userRegisterModel.getUsername());
 		user.setEnabled(true);
-		user.setPassword(passwordEncoder.encode(userModel.getPassword()));
+		user.setPassword(passwordEncoder.encode(userRegisterModel.getPassword()));
 		user = userRepository.save(user);
 
 		userRole.setRole(Role.ROLE_ADMIN.name());
 		userRole.setUser(user);
 		userRoleRepository.save(userRole);
+	}
 
-		userProfile.setUser(user);
-		userProfileRepository.save(userProfile);
+	public UserProfileModel getUserProfile() {
+		return UserMapper.toUserModel(userRepository.findByUsername(Auth.userLoggedIn()).get(0));
+	}
+
+	public void saveUserProfile(UserProfileModel userProfileModel) {
+		User user = userRepository.findOne(userProfileModel.getId());
+		user = UserMapper.toUser(userProfileModel, user);
+
+		userRepository.save(user);
 	}
 
 }

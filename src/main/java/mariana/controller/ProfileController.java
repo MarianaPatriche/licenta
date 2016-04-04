@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.validation.Valid;
 
 import mariana.models.UserProfileModel;
-import mariana.service.UserProfileService;
+import mariana.service.UserService;
 
 /**
  * Created by mariana on 29.03.2016.
@@ -21,23 +21,23 @@ import mariana.service.UserProfileService;
 public class ProfileController {
 
 	@Autowired
-	private UserProfileService userProfileService;
+	private UserService userService;
 
 	@RequestMapping("/form")
 	public String getProfileForm(Model model) {
-		model.addAttribute("profile", userProfileService.getUserProfileModel());
+		model.addAttribute("profile", userService.getUserProfile());
 
 		return "profile/form";
 	}
 
 	@RequestMapping("/save")
-	public String saveProfileForm(@Valid @ModelAttribute("profile")UserProfileModel userProfileModel, BindingResult bindingResult, Model model){
-		if(bindingResult.hasErrors()){
+	public String saveProfileForm(@Valid @ModelAttribute("profile") UserProfileModel userProfileModel, BindingResult bindingResult, Model model) {
+		if (bindingResult.hasErrors()) {
 			model.addAttribute("profile", userProfileModel);
 			return "profile/form";
 		}
 
-		userProfileService.saveUserProfile(userProfileModel);
+		userService.saveUserProfile(userProfileModel);
 
 		return "redirect:/";
 

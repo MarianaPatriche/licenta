@@ -1,8 +1,6 @@
 package mariana.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.Banner;
-import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -12,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.validation.Valid;
 
-import mariana.entity.User;
-import mariana.models.UserModel;
+import mariana.models.UserProfileModel;
+import mariana.models.UserRegisterModel;
 import mariana.service.UserService;
 import mariana.validator.UsernameValidator;
 
@@ -32,12 +30,12 @@ public class RegisterController extends BaseController {
 
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public String registerForm(Model model){
-		model.addAttribute("user", new UserModel());
+		model.addAttribute("user", new UserRegisterModel());
 		return "register";
 	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String registerUser(@Valid @ModelAttribute("user")UserModel user, BindingResult bindingResult, Model model){
+	public String registerUser(@Valid @ModelAttribute("user")UserRegisterModel user, BindingResult bindingResult, Model model){
 
 		usernameValidator.validate(user, bindingResult);
 		if(bindingResult.hasErrors()){

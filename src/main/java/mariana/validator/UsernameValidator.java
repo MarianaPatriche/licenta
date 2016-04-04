@@ -8,7 +8,8 @@ import org.springframework.validation.Validator;
 import java.util.List;
 
 import mariana.entity.User;
-import mariana.models.UserModel;
+import mariana.models.UserProfileModel;
+import mariana.models.UserRegisterModel;
 import mariana.repository.UserRepository;
 
 /**
@@ -23,16 +24,16 @@ public class UsernameValidator implements Validator {
 
 	@Override
 	public boolean supports(Class<?> x){
-		return UserModel.class.isAssignableFrom(x);
+		return UserProfileModel.class.isAssignableFrom(x);
 	}
 
 	@Override
 	public void validate(Object o, Errors errors){
-		UserModel userModel = (UserModel) o;
-		List<User> userList = userRepository.findByUsername(userModel.getUsername());
+		UserRegisterModel userRegisterModel = (UserRegisterModel) o;
+		List<User> userList = userRepository.findByUsername(userRegisterModel.getUsername());
 
 		for(User user : userList){
-			if(user.getUsername().equals(userModel.getUsername())){
+			if(user.getUsername().equals(userRegisterModel.getUsername())){
 				errors.rejectValue("username", "username.already.exist");
 			}
 		}
